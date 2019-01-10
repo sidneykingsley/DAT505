@@ -30,42 +30,42 @@ function init() {
 	var radius  = 0.6, segments	= 32, rotation	= 6;                              //sets attributes for the sphere
   for (var i=0;i<=2;i++) {                                                      //for loop which will repeat 3 times
     sphere[i] = createSphere(radius, segments, i);                              //creates a sphere using the createSphere function with the pre-set attributes as part of an array
-  	sphere[i].rotation.y = rotation;                                            //this sets the rotation of the sphere
-    sphere[i].position.x = spherePosCount;                                      //this sets the postion of each sphere differently
-    spherePosCount = spherePosCount + 2;                                        //this counter means that each sphere will be 2 points to the left
-  	scene.add(sphere[i])                                                        //this adds each sphere to the scene
+  	sphere[i].rotation.y = rotation;                                            //sets the rotation of the sphere
+    sphere[i].position.x = spherePosCount;                                      //sets the postion of each sphere differently
+    spherePosCount = spherePosCount + 2;                                        //a counter that means that each sphere will be 2 points to the left
+  	scene.add(sphere[i])                                                        //adds each sphere to the scene
   }
 
-  for (var i=0;i<sphere.length;i++) {                                           //this is another for loop which runs for as long as the sphere array is
-    randomSpinDir[i] = Math.floor(Math.random() * 3) + 0 ;                      //this randomly generates a spin direction for the spheres
+  for (var i=0;i<sphere.length;i++) {                                           //another for loop which runs for as long as the sphere array is
+    randomSpinDir[i] = Math.floor(Math.random() * 3) + 0 ;                      //randomly generates a spin direction for the spheres
   }
 
-    var sGeo = new THREE.IcosahedronGeometry(1, 0);
-    var sMat = new THREE.MeshPhongMaterial({
-      color: 0xffffff,
-      flatShading: THREE.FlatShading
-    });
-    for (var i = 0; i < 1000; i++) {
-      stars = new THREE.Mesh(sGeo, sMat);
-      stars.position.set(Math.random() - 0.5, Math.random() - 0.5, Math.random() - 0.5).normalize();
-      stars.position.multiplyScalar(90 + (Math.random() * 700));
-      stars.rotation.set(Math.random() * 2, Math.random() * 2, Math.random() * 2);
-      stars.scale.x = stars.scale.y = stars.scale.z = 0.5;
-      scene.add(stars);
-    }
+  var sGeo = new THREE.IcosahedronGeometry(1, 0);                               //sets the geometry for the icosahedron stars
+  var sMat = new THREE.MeshPhongMaterial({                                      //sets the material to phong
+    color: 0xffffff,                                                            //sets the colour to white
+    flatShading: THREE.FlatShading                                              //flat shading
+  });
+  for (var i = 0; i < 1000; i++) {                                              //for a thousand iterations
+    stars = new THREE.Mesh(sGeo, sMat);                                         //creates a mesh with the pre-set geometry and material
+    stars.position.set(Math.random() - 0.5, Math.random() - 0.5, Math.random() - 0.5).normalize();  //randomises the position
+    stars.position.multiplyScalar(90 + (Math.random() * 700));                  //randomises the position
+    stars.rotation.set(Math.random() * 2, Math.random() * 2, Math.random() * 2);  //randomises the rotation
+    stars.scale.x = stars.scale.y = stars.scale.z = 0.5;                        //sets the scale to half the size
+    scene.add(stars);                                                           //adds the mesh to the scene
+  }
 
-	camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
-	camera.position.z = 3;
-  controls = new THREE.OrbitControls(camera);
-  controls.minDistance = 0.7;
-  controls.maxDistance = 500;
+	camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000); //adds a camera
+	camera.position.z = 3;                                                        //sets the camera postion
+  controls = new THREE.OrbitControls(camera);                                   //uses OrbitControls.js to make the camera orbit and zoom from the center of the canvas by dragging and scrolling
+  controls.minDistance = 0.7;                                                   //sets the minimum zoom distance
+  controls.maxDistance = 500;                                                   //sets the maximum zoom distance
 
-	var light = new THREE.DirectionalLight(0xffffff, 1);
-	light.position.set(5,3,5);
-	scene.add(light);
+	var light = new THREE.DirectionalLight(0xffffff, 1);                          //defines a new white directional light
+	light.position.set(5,3,5);                                                    //sets the position
+	scene.add(light);                                                             //adds the light to the scene
 
-  var ambientLight = new THREE.AmbientLight(0x999999, 0.5);
-  scene.add(ambientLight);
+  var ambientLight = new THREE.AmbientLight(0x999999, 0.5);                     //defines a new light grey ambient light
+  scene.add(ambientLight);                                                      //adds the light to the scene
 
   window.addEventListener('resize', onWindowResize, false);
 };
