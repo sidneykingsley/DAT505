@@ -6,4 +6,4 @@ UNIVERSITY OF PLYMOUTH
 
 Atmosphere.
 
-An environment-based relaxation application with interactive elements.
+An environment-based meditation app with interactive elements.
