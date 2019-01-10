@@ -4,5 +4,6 @@ DIGITAL MEDIA DESIGN
 UNIVERSITY OF PLYMOUTH
 22/10/2018 - 10/01/2019
 
+Atmosphere.
 
-05/11/2018 Research and conceptualisation stage.
+An interactive relaxation environment application.

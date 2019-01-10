@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <meta charset="UTF-8" />
+    <title>atmosphere</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+      <link rel="shortcut icon" type="x-icon" href="assets/icons/tabIcon.png" />
+      <link rel="stylesheet" type="text/css" href="css/welcome.css">
+      <link rel="stylesheet" type="text/css" href="css/style.css">
+      <link rel="stylesheet" type="text/css" href="css/blue.css">
+      <script src="build/three.min.js"></script>
+  </head>
+  <body>
+    <audio id="blueSound" src="assets/sounds/blue.mov" loop="loop"></audio>
+    <header><a id="headerText" href="/">atmosphere:blue</a></header>
+    <footer id="footerTag">
+      <img src="assets/icons/help.png" id="helpLink" onclick="helpClick()"><p id="footerDesc">this is the blue jupiter atmosphere. an impression of a planet made into a meditative-exprience.</p>
+    </footer>
+    <div id="movButtonStyle">
+      <button id="movButton" onclick="movClick()">turn clouds off</button>
+    </div>
+    <div id="early"><h2 id="earlyText"><h2></div>
+    <div>
+    <div id="canvas"></div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="build/OrbitControls.js"></script>
+    <script src="build/OBJLoader.js"></script>
+    <script src="build/MTLLoader.js"></script>
+    <script src="js/blue.js"></script>
+  </body>
+</html>
